@@ -28,7 +28,8 @@
   },
   "devDependencies": {
     "@types/foundation-sites": "^6.1.28",
-    "@types/jasmine": "^2.2.30",
+    "@types/jasmine": "^2.5.38",
+    "@types/karma": "^0.13.33",
     "@types/node": "^6.0.42",
     "angular-cli": "1.0.0-beta.19-3",
     "codelyzer": "1.0.0-beta.1",
