@@ -1,0 +1,32 @@
+@import "../settings";
+
+#top {
+    background-color: map-get($foundation-palette, primary);
+    color: $white;
+    p {
+        margin-bottom: 0;
+    }
+    .menu li a {
+        line-height: $paragraph-lineheight;
+    }
+}
+
+#top a, #bottom a {
+    color: $medium-gray !important;
+    &:hover, &:active {
+        color: $dark-gray !important;
+    }
+    &:visited {
+        color: $medium-gray;
+    }
+}
+
+p.title {
+    padding: $menu-item-padding;
+}
+
+#bottom {
+    margin: 0 auto;
+    background-color: $dark-gray;
+    color: $white;
+}

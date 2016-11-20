@@ -1,3 +1,51 @@
-<h1>
-  {{title}}
-</h1>
+<!-- Header -->
+<div id="top" class="clearfix">
+    <p class="title float-left">Printing Express, Inc</p>
+    <nav class="float-right">
+        <ul class="menu">
+            <li><a>Home</a></li>
+            <li><a>Printing</a></li>
+            <li><a>Signs &amp; Banners</a></li>
+            <li><a>Photographs</a></li>
+            <li><a>Contact Us</a></li>
+        </ul>
+    </nav>
+</div>
+
+<!-- Content -->
+<router-outlet></router-outlet>
+
+<!-- Footer -->
+<div id="bottom">
+    <section class="row">
+        <aside id="help" class="columns medium-4">
+            <h3>Need Help?</h3>
+            <p>View our
+                <a href="<?php echo $this->url('prexp', array('controller' => 'artwork', 'action' => 'templates')); ?>">template library</a>
+                <wbr /> or check out our
+                <a href="<?php echo $this->url('prexp', array('controller' => 'artwork', 'action' => 'guide')); ?>">guide on making artwork.</a> Graphic pros can look at our
+                <a href="<?php echo $this->url('prexp', array('controller' => 'artwork', 'action' => 'requirements')); ?>">artwork requirements.</a></p>
+            <p>You can <a href="<?php echo $this->url('orderOnline'); ?>">upload online</a> when your artwork is ready</p>
+        </aside>
+        <footer id="footer" class="columns medium-4">
+            <h3>Legal Stuff</h3>
+            <p>
+                This site and all content &copy; {{year}}
+                <a href="/">Printing Express, Inc.</a></p>
+            <p>Check out our
+                <a href="<?php echo $this->url('privacy'); ?>">Privacy Policy</a> and
+                <a href="<?php echo $this->url('terms'); ?>">Terms of Service</a>
+            </p>
+        </footer>
+        <section id="contactinfo" class="columns medium-4">
+            <h3>Contact Us</h3>
+            <address>
+            <a href="/">Printing Express, Inc.</a><br />
+            521 N Mur-Len Rd<br />
+            Olathe, KS 66062<br />
+            <a href="tel:9137647574">(913) 764-7574</a><br />
+            <a href="mailto:sales@printingexpress.org">sales@printingexpress.org</a>
+        </address>
+        </section>
+    </section>
+</div>
