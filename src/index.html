@@ -1,14 +1,49 @@
 <!doctype html>
-<html>
-<head>
-  <meta charset="utf-8">
-  <title>Printingexpress</title>
-  <base href="/">
+<html prefix="og: http://ogp.me/ns#">
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
+<head>
+    <meta charset="utf-8">
+    <title>Printingexpress</title>
+    <base href="/">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="en_US">
+    <!-- <meta property="og:image" content="website">
+    //og:title, og:desc, og:url image is 1200x630 -->
+
+    <!-- title, description, image, url image is 280x150 min or 800x200 or 800x320 -->
+    <meta name="twitter:card" content="summary">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
 </head>
+
 <body>
-  <app-root>Loading...</app-root>
+    <app-root>Loading...</app-root>
+
+    <!-- Schema.org in JSON-LD format to avoid extra markup -->
+    <script type="application/ld+json">
+        {
+            "@context": "http://schema.org",
+            "@type": "LocalBusiness",
+            "name": "Beachwalk Beachwear & Giftware",
+            "description": "A superb collection of fine gifts and clothing to accent your stay in Mexico Beach.",
+            "logo": "https://printingexpress.org/assets/images/logo.png",
+            "image": "https://printingexpress.org/assets/images/logo.png",
+            "priceRange": "$$",
+            "openingHours": "Mo-Fr 08:30-17:30",
+            "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "521 N Mur-Len Rd",
+                "addressLocality": "Olathe",
+                "addressRegion": "KS",
+                "postalCode": "66062"
+            },
+            "email": "sales@printingexpress.org",
+            "telephone": "913-764-7574",
+            "url": "https://printingexpress.org/",
+            "foundingDate": "1990-08"
+        }
+    </script>
 </body>
+
 </html>
