@@ -1,3 +1,9 @@
 @import "~foundation-sites/scss/foundation";
 @import "settings";
 @include foundation-everything(true);
+
+body {
+  background-image: url('/assets/images/groovepaper_@2X.png');
+  background-repeat: repeat;
+  background-position: fixed;
+}
