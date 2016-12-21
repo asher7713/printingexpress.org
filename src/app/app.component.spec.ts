@@ -1,33 +1,52 @@
 /* tslint:disable:no-unused-variable */
 
-import { TestBed, async } from '@angular/core/testing';
-import { AppComponent } from './app.component';
+/**
+ * Run some simple tests to make sure it actually builds the app
+ * and also to make sure nothing has destroyed the layout.
+ * for example, if someone accidentally deleted the router-outlet,
+ * that would be a problem.
+ * Note that we are using nativeElement instead of debugElement
+ * for everything because we don't really need any features
+ * beyond being able to query the DOM.
+ **/
 
-describe('App: Printingexpress', () => {
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { ComponentFixture, TestBed, async } from '@angular/core/testing';
+import { AppComponent } from './app.component';
+import {} from 'jasmine';
+
+let fixture: ComponentFixture<AppComponent>;
+let comp: AppComponent;
+
+describe('App: Printing Express', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       declarations: [
         AppComponent
       ],
+      schemas: [
+          CUSTOM_ELEMENTS_SCHEMA // We need this for the md-toolbar directive
+      ]
     });
+    fixture = TestBed.createComponent(AppComponent);
+    comp = fixture.componentInstance;
   });
 
   it('should create the app', async(() => {
-    let fixture = TestBed.createComponent(AppComponent);
-    let app = fixture.debugElement.componentInstance;
-    expect(app).toBeTruthy();
+    expect(comp).toBeTruthy();
   }));
 
-  it(`should have as title 'app works!'`, async(() => {
-    let fixture = TestBed.createComponent(AppComponent);
-    let app = fixture.debugElement.componentInstance;
-    expect(app.title).toEqual('app works!');
+  // There should be a toolbar running across the top
+  it('better have a toolbar at the top', async(() => {
+    expect(fixture.nativeElement.querySelector('#top')).toBeTruthy();
   }));
 
-  it('should render title in a h1 tag', async(() => {
-    let fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    let compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('h1').textContent).toContain('app works!');
+  // Also a bar running across the bottom
+  it('better have a footer at the bottom', async(() => {
+    expect(fixture.nativeElement.querySelector('#bottom')).toBeTruthy();
+  }));
+
+  it('better put the <router-outlet> under the <article>', async(() => {
+    expect(fixture.nativeElement.querySelector('article router-outlet')).toBeTruthy();
   }));
 });
