@@ -1,0 +1,4 @@
+<div class="logo-container" [ngClass]="{'full-screen': fullScreen, 'not-full-screen': !fullScreen}">
+    <img src="/assets/images/logo.png" alt="Printing Express" [@fadeIn]="logoState">
+    <h1 [@fadeIn]="headerState">{{title}}</h1>
+</div>

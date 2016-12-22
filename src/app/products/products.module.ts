@@ -1,10 +1,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ProductsComponent } from './products.component';
+import { PageHeaderModule } from '../page-header/page-header.module';
 
 @NgModule({
   imports: [
-    CommonModule
+    CommonModule,
+    PageHeaderModule
   ],
   declarations: [ProductsComponent]
 })

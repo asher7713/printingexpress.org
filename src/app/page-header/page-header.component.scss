@@ -1,0 +1,45 @@
+@import '../../settings';
+
+.logo-container {
+    &.full-screen {
+        height: calc(100vh - 2.9em);
+        h1, img {
+            display: block;
+            margin: 0 auto;
+            margin-bottom: 5vh;
+        }
+        img {
+            height: 40vh;
+        }
+    }
+    &.not-full-screen {
+        display: table;
+        width: 100%;
+        h1 {
+            display: table-cell;
+            vertical-align: middle;
+        }
+        img {
+            max-height: 30vh;
+        }
+
+    }
+    padding: 5vh 1em;
+    background: #999 url('/assets/images/letters-of-lead-1426501-600.jpg') no-repeat fixed;
+    background-size: cover;
+    margin-bottom: 2rem;
+
+    img {
+        width: auto;
+        max-width: 100%;
+    }
+
+    h1 {
+        font-family: 'Lobster', cursive;
+        text-align: center;
+        font-size: 15vh;
+        display: inline-block;
+        color: map-get($foundation-palette, alert);
+        text-shadow: 0 0 2px black, 0 0 15px black, 0 0 25px black;
+    }
+}

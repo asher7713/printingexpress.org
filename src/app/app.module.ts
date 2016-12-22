@@ -10,21 +10,23 @@ import { ProductsModule } from './products/products.module';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
+import { PageHeaderModule } from './page-header/page-header.module';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HomeComponent
-  ],
-  imports: [
-    BrowserModule,
-    FormsModule,
-    HttpModule,
-    AppRoutingModule,
-    PagesModule,
-    ProductsModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        HomeComponent
+    ],
+    imports: [
+        BrowserModule,
+        FormsModule,
+        HttpModule,
+        AppRoutingModule,
+        PageHeaderModule,
+        PagesModule,
+        ProductsModule
+    ],
+    providers: [],
+    bootstrap: [AppComponent]
 })
 export class AppModule { }
