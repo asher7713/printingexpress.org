@@ -9,22 +9,30 @@
             margin-bottom: 5vh;
         }
         img {
-            height: 40vh;
+            height: auto;
+            @include breakpoint(medium) {
+                height: 40vh;
+            }
         }
     }
     &.not-full-screen {
-        display: table;
-        width: 100%;
-        h1 {
-            display: table-cell;
-            vertical-align: middle;
+        @include breakpoint(medium) {
+            display: table;
+            width: 100%;
+            img, h1 {
+                display: table-cell !important;
+                vertical-align: middle;
+            }
+        }
+        img, h1 {
+            display: block;
         }
         img {
+            margin: 0 auto;
             max-height: 30vh;
         }
-
     }
-    padding: 5vh 1em;
+    padding: 5vh 1rem;
     background: #999 url('/assets/images/letters-of-lead-1426501-600.jpg') no-repeat fixed;
     background-size: cover;
     margin-bottom: 2rem;
@@ -37,7 +45,10 @@
     h1 {
         font-family: 'Lobster', cursive;
         text-align: center;
-        font-size: 15vh;
+        @include breakpoint(large) {
+            font-size: 15vh;
+        }
+        font-size: 10vh;
         line-height: 1;
         display: inline-block;
         color: map-get($foundation-palette, alert);
