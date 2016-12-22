@@ -1,9 +1,16 @@
 @import "~foundation-sites/scss/foundation";
 @import "settings";
-@include foundation-everything(true);
+
+$global-flexbox: true !global;
+@include foundation-global-styles;
+@include foundation-flex-grid;
+@include foundation-typography;
+@include foundation-visibility-classes;
+@include foundation-float-classes;
+@include foundation-flex-classes;
 
 body {
-  background-image: url('/assets/images/groovepaper_@2X.png');
-  background-repeat: repeat;
-  background-position: fixed;
+    background-image: url('/assets/images/groovepaper_@2X.png');
+    background-repeat: repeat;
+    background-position: fixed;
 }
