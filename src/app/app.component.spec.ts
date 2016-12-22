@@ -46,7 +46,7 @@ describe('App: Printing Express', () => {
     expect(fixture.nativeElement.querySelector('#bottom')).toBeTruthy();
   }));
 
-  it('better put the <router-outlet> under the <article>', async(() => {
-    expect(fixture.nativeElement.querySelector('article router-outlet')).toBeTruthy();
+  it('better put the <router-outlet> under the <main>', async(() => {
+    expect(fixture.nativeElement.querySelector('main router-outlet')).toBeTruthy();
   }));
 });
