@@ -38,6 +38,7 @@
         font-family: 'Lobster', cursive;
         text-align: center;
         font-size: 15vh;
+        line-height: 1;
         display: inline-block;
         color: map-get($foundation-palette, alert);
         text-shadow: 0 0 2px black, 0 0 15px black, 0 0 25px black;

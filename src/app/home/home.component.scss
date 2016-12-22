@@ -1,3 +1,5 @@
+@import "../../settings";
+
 p.large {
     font-size: 1.25rem;
     text-align: center;
@@ -9,6 +11,9 @@ p.large {
         text-align: center;
     }
     p {
-        text-align: justify;
+        text-align: center;
+        @include breakpoint(large) {
+            text-align: justify;
+        }
     }
 }

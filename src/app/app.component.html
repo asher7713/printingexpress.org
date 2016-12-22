@@ -1,6 +1,8 @@
 <!-- Header -->
 <div id="top" class="clearfix">
-    <p class="title float-left">Printing Express, Inc</p>
+    <p class="title float-left">
+        <a routerLink="/">Printing Express, Inc</a>
+    </p>
     <nav class="float-right">
         <p class="title"><a routerLink="/products">View our products</a></p>
     </nav>
@@ -8,13 +10,13 @@
 
 <!-- Content -->
 <main>
-  <router-outlet></router-outlet>
+    <router-outlet></router-outlet>
 </main>
 
 <!-- Footer -->
 <div id="bottom">
-    <section class="row">
-        <aside id="help" class="columns medium-4">
+    <section class="row align-center">
+        <!--<aside id="help" class="columns medium-4">
             <h3>Need Help?</h3>
             <p>View our
                 <a href="<?php echo $this->url('prexp', array('controller' => 'artwork', 'action' => 'templates')); ?>">template library</a>
@@ -22,18 +24,8 @@
                 <a href="<?php echo $this->url('prexp', array('controller' => 'artwork', 'action' => 'guide')); ?>">guide on making artwork.</a> Graphic pros can look at our
                 <a href="<?php echo $this->url('prexp', array('controller' => 'artwork', 'action' => 'requirements')); ?>">artwork requirements.</a></p>
             <p>You can <a href="<?php echo $this->url('orderOnline'); ?>">upload online</a> when your artwork is ready</p>
-        </aside>
-        <footer id="footer" class="columns medium-4">
-            <h3>Legal Stuff</h3>
-            <p>
-                This site and all content &copy; {{year}}
-                <a routerLink="/">Printing Express, Inc.</a></p>
-            <p>Check out our
-                <a routerLink="/privacy">Privacy Policy</a> and
-                <a routerLink="/terms">Terms of Service</a>
-            </p>
-        </footer>
-        <section id="contactinfo" class="columns medium-4">
+        </aside>-->
+        <section id="contactinfo" class="columns shrink">
             <h3>Contact Us</h3>
             <address>
             <a routerLink="/">Printing Express, Inc.</a><br />
@@ -43,5 +35,15 @@
             <a href="mailto:sales@printingexpress.org">sales@printingexpress.org</a>
         </address>
         </section>
+        <footer id="footer" class="columns shrink">
+            <h3>Legal Stuff</h3>
+            <p>
+                This site and all content &copy; {{year}}
+                <a routerLink="/">Printing Express, Inc.</a></p>
+            <p>Check out our
+                <a routerLink="/privacy">Privacy Policy</a> and
+                <a routerLink="/terms">Terms of Service</a>
+            </p>
+        </footer>
     </section>
 </div>
