@@ -1,3 +1,6 @@
+[![Build Status](https://travis-ci.org/onwsk8r/printingexpress.org.svg?branch=develop)](https://travis-ci.org/onwsk8r/printingexpress.org)
+[![Coverage Status](https://coveralls.io/repos/github/onwsk8r/printingexpress.org/badge.svg?branch=develop)](https://coveralls.io/github/onwsk8r/printingexpress.org?branch=travis)
+
 # Printingexpress
 
 This project was generated with [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.19-3.
