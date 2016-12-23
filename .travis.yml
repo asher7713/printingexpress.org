@@ -1,0 +1,65 @@
+language: node_js
+sudo: true
+dist: trusty
+
+addons:
+  apt:
+    sources:
+      - google-chrome
+    packages:
+      - google-chrome-stable
+
+node_js:
+  - '6'
+
+branches:
+  only:
+    - master
+    - develop
+
+cache: yarn
+
+install:
+  - yarn
+  - yarn global add angular-cli
+
+before_script:
+  - export CHROME_BIN=/usr/bin/google-chrome
+  - export DISPLAY=:99.0
+  - sh -e /etc/init.d/xvfb start
+  - sleep 3
+
+script:
+  - ng lint
+  - ng test --watch=false --code-coverage
+
+after_script:
+  - cat coverage/coverage.lcov | ./node_modules/coveralls/bin/coveralls.js
+
+before_deploy: ng build -prod #-aot
+
+deploy:
+  - provider: s3
+    access_key_id: $AWS_ACCESS_KEY
+    secret_access_key: $AWS_SECRET_KEY
+    bucket: $AWS_S3_DEV_BUCKET
+    skip_cleanup: true
+    acl: public_read
+    local_dir: dist
+    detect_encoding: true
+    default_text_charset: 'utf-8'
+    on:
+      branch: develop
+  - provider: s3
+    access_key_id: $AWS_ACCESS_KEY
+    secret_access_key: $AWS_SECRET_KEY
+    bucket: $AWS_S3_PROD_BUCKET
+    skip_cleanup: true
+    acl: public_read
+    local_dir: dist
+    detect_encoding: true
+    default_text_charset: 'utf-8'
+    on:
+      tags: true
+  # cache_control: "max-age=31536000"
+  # expires: "2012-12-21 00:00:00 -0000"
