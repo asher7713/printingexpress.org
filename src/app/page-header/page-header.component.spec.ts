@@ -8,6 +8,7 @@ import { PageHeaderComponent } from './page-header.component';
 describe('PageHeaderComponent', () => {
     let component: PageHeaderComponent;
     let fixture: ComponentFixture<PageHeaderComponent>;
+    let title = 'The Title';
 
     beforeEach(async(() => {
         TestBed.configureTestingModule({
@@ -19,6 +20,8 @@ describe('PageHeaderComponent', () => {
     beforeEach(() => {
         fixture = TestBed.createComponent(PageHeaderComponent);
         component = fixture.componentInstance;
+
+        component.title = title;
         fixture.detectChanges();
     });
 
@@ -41,13 +44,12 @@ describe('PageHeaderComponent', () => {
     });
 
     it('should display and update the value of "title" in an h1', () => {
-        component.title = 'The Title';
-        fixture.detectChanges();
         let el = fixture.nativeElement.querySelector('h1');
-        expect(el.textContent).toBe('The Title');
+        expect(el.textContent).toBe(title);
+    });
 
-        component.title = 'The New Title';
-        fixture.detectChanges();
-        expect(el.textContent).toBe('The New Title');
+    it('should display and update the value of "title" in the title tag', () => {
+        let titleTagTitle = component.titlePrefix + title;
+        expect(document.title).toBe(titleTagTitle);
     });
 });

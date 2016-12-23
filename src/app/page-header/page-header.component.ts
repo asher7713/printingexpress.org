@@ -8,6 +8,7 @@ import {
     animate,
     transition
 } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 
 @Component({
     selector: 'page-header',
@@ -24,13 +25,19 @@ import {
     ]
 })
 export class PageHeaderComponent implements OnInit {
+    titlePrefix = 'Printing Express - ';
     @Input() title: string;
     @Input() fullScreen = false;
     logoState = 'out';
     headerState = 'out';
 
+    public constructor(private titleService: Title) {}
+
     ngOnInit() {
         this.logoState = 'in';
         window.setTimeout(() => this.headerState = 'in', 150);
+
+        let title = this.titlePrefix + this.title;
+        this.titleService.setTitle(title);
     }
 }
