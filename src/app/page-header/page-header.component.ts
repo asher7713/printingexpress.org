@@ -1,6 +1,6 @@
 import {
     Component,
-    AfterViewInit,
+    OnInit,
     Input,
     trigger,
     state,
@@ -23,13 +23,13 @@ import {
         ])
     ]
 })
-export class PageHeaderComponent implements AfterViewInit {
+export class PageHeaderComponent implements OnInit {
     @Input() title: string;
     @Input() fullScreen = false;
     logoState = 'out';
     headerState = 'out';
-    ngAfterViewInit() {
-        console.log(this.fullScreen);
+
+    ngOnInit() {
         this.logoState = 'in';
         window.setTimeout(() => this.headerState = 'in', 150);
     }
