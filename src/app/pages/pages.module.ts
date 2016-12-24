@@ -6,6 +6,7 @@ import { PagesRoutingModule } from './pages-routing.module';
 
 import { PrivacyComponent } from './privacy.component';
 import { TermsComponent } from './terms.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 @NgModule({
   imports: [
@@ -13,6 +14,6 @@ import { TermsComponent } from './terms.component';
     PageHeaderModule,
     PagesRoutingModule
   ],
-  declarations: [PrivacyComponent, TermsComponent]
+  declarations: [PrivacyComponent, TermsComponent, PageNotFoundComponent]
 })
 export class PagesModule { }
