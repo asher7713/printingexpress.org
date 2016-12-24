@@ -4,22 +4,22 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 
-import { PageNotFoundComponent } from './page-not-found.component';
+import { PrivacyComponent } from './privacy.component';
 
-describe('PageNotFoundComponent', () => {
-  let component: PageNotFoundComponent;
-  let fixture: ComponentFixture<PageNotFoundComponent>;
+describe('PrivacyComponent', () => {
+  let component: PrivacyComponent;
+  let fixture: ComponentFixture<PrivacyComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PageNotFoundComponent ],
+      declarations: [ PrivacyComponent ],
       schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(PageNotFoundComponent);
+    fixture = TestBed.createComponent(PrivacyComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
@@ -28,10 +28,10 @@ describe('PageNotFoundComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should have a page header that says Page Not Found', () => {
+  it('should have a page header that says Privacy Policy', () => {
       let de = fixture.debugElement.query(By.css('page-header'));
       expect(de).toBeTruthy();
       let title = de.properties['title'];
-      expect(title).toBe('Page Not Found');
+      expect(title).toBe('Privacy Policy');
   });
 });
