@@ -5,6 +5,7 @@ import { HttpModule } from '@angular/http';
 
 import { AppRoutingModule } from './app-routing.module';
 
+import { ArtworkModule } from './artwork/artwork.module';
 import { PagesModule } from './pages/pages.module';
 import { ProductsModule } from './products/products.module';
 
@@ -23,8 +24,9 @@ import { PageHeaderModule } from './page-header/page-header.module';
         HttpModule,
         AppRoutingModule,
         PageHeaderModule,
-        PagesModule,
-        ProductsModule
+        ArtworkModule,
+        ProductsModule,
+        PagesModule
     ],
     providers: [],
     bootstrap: [AppComponent]
