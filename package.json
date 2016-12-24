@@ -1,6 +1,6 @@
 {
   "name": "printingexpress.org",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "angular-cli": {},
   "scripts": {
     "start": "ng serve",
