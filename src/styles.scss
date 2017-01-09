@@ -14,4 +14,23 @@ body {
     background-image: url('/assets/images/groovepaper_@2X.png');
     background-repeat: repeat;
     background-position: fixed;
+
+    // Add breakpoints to body:before
+    // so we can access them from JS
+    &:before {
+        content: "small";
+        display: none; /* Prevent from displaying. */
+        @include breakpoint("medium") {
+            content: "medium";
+        }
+        @include breakpoint("large") {
+            content: "large";
+        }
+        @include breakpoint("xlarge") {
+            content: "xlarge";
+        }
+        @include breakpoint("xxlarge") {
+            content: "xxlarge";
+        }
+    }
 }

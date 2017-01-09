@@ -1,0 +1,34 @@
+@import "~foundation-sites/scss/foundation";
+@import "../../settings";
+@include foundation-menu;
+@include foundation-menu-icon;
+@include foundation-top-bar;
+
+.top-bar {
+    position: fixed;
+    width: 100%;
+    box-shadow: 0 0 12px black;
+
+    a {
+        color: $white;
+        &:active,
+        &:hover {
+            // The important is necessary to override some default style
+            color: $light-gray !important;
+            transition: color 0.5s ease-in-out;
+        }
+
+        &:visited {
+            color: $white;
+        }
+    }
+
+    .menu > li > a {
+        @include breakpoint(medium down) {
+            padding: 0.5em !important;
+            &:hover {
+                color: $black !important;
+            }
+        }
+    }
+}

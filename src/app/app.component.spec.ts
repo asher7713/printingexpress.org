@@ -38,7 +38,7 @@ describe('App: Printing Express', () => {
 
   // There should be a toolbar running across the top
   it('better have a toolbar at the top', async(() => {
-    expect(fixture.nativeElement.querySelector('#top')).toBeTruthy();
+    expect(fixture.nativeElement.querySelector('top-bar')).toBeTruthy();
   }));
 
   // Also a bar running across the bottom

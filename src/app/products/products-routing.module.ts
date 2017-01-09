@@ -11,7 +11,7 @@ const productsRoutes: Routes = [
   {
       path: 'products',
       children: [
-          {path: '', component: ProductsComponent},
+          {path: '', component: ProductsComponent, pathMatch: 'prefix'},
           {path: 'photographs', component: PhotographsComponent},
           {path: 'wide-format', component: WideFormatComponent},
           {path: 'banners', redirectTo: 'wide-format'},
