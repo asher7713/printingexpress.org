@@ -7,12 +7,12 @@
         <a routerLink="/">Printing Express, Inc</a>
     </div>
     <nav class="top-bar-right">
-        <ul class="vertical large-horizontal menu" [@nav]="navIs">
+        <ul class="vertical large-horizontal menu">
             <li><a href="/products">Products</a></li>
             <li *ngFor="let page of pages">
                 <a [@link]="linkPosition" [routerLink]="['/products', page.path]">{{page.name}}</a>
             </li>
         </ul>
-    </nav> 
+    </nav>
 </div>
 <div #bumper class="clearfix"></div>

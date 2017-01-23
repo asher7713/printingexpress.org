@@ -32,6 +32,9 @@ before_script:
 script:
   - ng lint
   - ng test --watch=false --code-coverage
+  - npm start &
+  - sleep 60
+  - ng e2e
 
 after_script:
   - cat coverage/coverage.lcov | ./node_modules/coveralls/bin/coveralls.js

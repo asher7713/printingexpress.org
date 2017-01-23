@@ -1,9 +1,7 @@
-import { Config } from 'protractor';
-
 /*global jasmine */
 var SpecReporter = require('jasmine-spec-reporter');
 
-exports let config: Config = {
+exports.config = {
   allScriptsTimeout: 11000,
   specs: [
     './e2e/**/*.e2e-spec.ts'
