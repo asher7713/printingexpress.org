@@ -16,3 +16,4 @@ for f in `aws s3 ls --recursive $BUCKET | awk '{print $4}'`; do
     if [[ ! -f dist/$f ]]; then
         aws s3 rm s3://$BUCKET/$f
     fi
+done
