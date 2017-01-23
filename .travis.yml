@@ -39,6 +39,7 @@ script:
 before_deploy:
   - cat coverage/coverage.lcov | ./node_modules/coveralls/bin/coveralls.js
   - ng build -prod
+  - pip install awscli
 
 deploy:
   - provider: s3
