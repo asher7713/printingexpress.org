@@ -40,6 +40,7 @@ before_deploy:
   - cat coverage/coverage.lcov | ./node_modules/coveralls/bin/coveralls.js
   - ng build -prod
   - pip install awscli
+  - ./dev/create_invalidation.sh
 
 deploy:
   - provider: s3
@@ -49,8 +50,8 @@ deploy:
     skip_cleanup: true
     acl: public_read
     local_dir: dist
-    detect_encoding: true
     default_text_charset: 'utf-8'
+    cache_control: "max-age=31536000"
     on:
       branch: develop
   - provider: s3
@@ -60,12 +61,10 @@ deploy:
     skip_cleanup: true
     acl: public_read
     local_dir: dist
-    detect_encoding: true
     default_text_charset: 'utf-8'
+    cache_control: "max-age=31536000"
     on:
       branch: master
-    # cache_control: "max-age=31536000"
-    # expires: "2012-12-21 00:00:00 -0000"
 
 after_deploy:
   - ./dev/remove_old_files.sh
