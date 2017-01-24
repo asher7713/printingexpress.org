@@ -14,7 +14,7 @@ else
     exit 1
 fi
 
-if [[ -z $DISTRO || -z $BUCKET ]]; then
+if [[ -z $BUCKET ]]; then
     exit
 fi
 
@@ -22,8 +22,12 @@ PATHS=""
 for f in `aws s3 ls --recursive $BUCKET | awk '{print $4}'`; do
     if [[ -f dist/$f ]]; then
         PATHS="$PATHS /$f"
+    else
+        aws s3 rm s3://$BUCKET/$f
     fi
 done
 
-# $PATHS starts with a space
-aws cloudfront create-invalidation --distribution-id $DISTRO --paths$PATHS
+if [[ ! -z $DISTRO ]]; then
+    # $PATHS starts with a space
+    aws cloudfront create-invalidation --distribution-id $DISTRO --paths$PATHS
+fi
