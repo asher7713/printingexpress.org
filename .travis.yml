@@ -40,7 +40,6 @@ before_deploy:
   - cat coverage/coverage.lcov | ./node_modules/coveralls/bin/coveralls.js
   - ng build -prod
   - pip install awscli
-  - ./dev/create_invalidation.sh
 
 deploy:
   - provider: s3
@@ -67,4 +66,4 @@ deploy:
       branch: master
 
 after_deploy:
-  - ./dev/remove_old_files.sh
+  - ./dev/update_aws.sh
