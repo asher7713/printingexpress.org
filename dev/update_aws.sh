@@ -28,6 +28,7 @@ for f in `aws s3 ls --recursive $BUCKET | awk '{print $4}'`; do
 done
 
 if [[ ! -z $DISTRO ]]; then
+    aws configure set preview.cloudfront true
     # $PATHS starts with a space
     aws cloudfront create-invalidation --distribution-id $DISTRO --paths$PATHS
 fi
