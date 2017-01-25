@@ -1,8 +1,16 @@
 #!/bin/bash
-# Invalidate anything that's being replaced
-# (ie index.html)
+# Delete old files from AWS
+# and send invalidations to CF
 
 set -ev
+
+## SKIP INVALIDATION ON THESE FILES
+# If one of these files is changed, this list will need to be updated.
+# This provides a way to make less total invalidations
+# We can't compare modification times, since everything is rebuilt on
+# each build. We can't compare sizes safely because, for instance,
+# index.html will be the same size.
+SKIP_LIST=("favicon.ico", "assets/*")
 
 if [[ $BRANCH -eq "master" ]]; then
     BUCKET=$PROD_BUCKET
@@ -19,11 +27,16 @@ if [[ -z $BUCKET ]]; then
 fi
 
 PATHS=""
-for f in `aws s3 ls --recursive $BUCKET | awk '{print $4}'`; do
-    if [[ -f dist/$f ]]; then
-        PATHS="$PATHS /$f"
+for file in `aws s3 ls --recursive $BUCKET | awk '{print $4}'`; do
+    if [[ -f dist/$file ]]; then
+        for skip in $SKIP_LIST; do
+            if [[ $file =~ $skip ]]; then
+                continue;
+            fi
+        done
+        PATHS="$PATHS /$file"
     else
-        aws s3 rm s3://$BUCKET/$f
+        aws s3 rm s3://$BUCKET/$file
     fi
 done
 
