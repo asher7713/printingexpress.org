@@ -48,5 +48,6 @@
     "webdriver-manager": "10.2.5"
   },
   "repository": "git@github.com:onwsk8r/printingexpress.org.git",
-  "author": "Brian Hazeltine <onwsk8r@gmail.com>"
+  "author": "Brian Hazeltine <onwsk8r@gmail.com>",
+  "license": "SEE LICENSE IN LICENSE"
 }
