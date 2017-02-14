@@ -21,7 +21,7 @@ cache: yarn
 
 install:
   - yarn
-  - yarn global add angular-cli
+  - yarn global add @angular/cli
 
 before_script:
   - export CHROME_BIN=/usr/bin/google-chrome
