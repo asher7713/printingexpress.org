@@ -6,7 +6,7 @@
         </span>
         <a routerLink="/">Printing Express, Inc</a>
     </div>
-    <nav class="top-bar-right">
+    <nav class="top-bar-right" [@nav]="navIs">
         <ul class="vertical large-horizontal menu">
             <li><a href="/products">Products</a></li>
             <li *ngFor="let page of pages">
