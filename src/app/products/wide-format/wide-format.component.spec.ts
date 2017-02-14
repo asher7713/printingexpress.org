@@ -29,8 +29,8 @@ describe('WideFormatComponent', () => {
         expect(component).toBeTruthy();
     });
 
-    it('should have a page-header with title Signs and Banners', () => {
-        const de = fixture.debugElement.query(By.css('page-header'));
+    it('should have a prexp-header with title Signs and Banners', () => {
+        const de = fixture.debugElement.query(By.css('prexp-header'));
         expect(de).toBeTruthy();
         const title = de.properties['title'];
         expect(title).toBe('Signs and Banners');

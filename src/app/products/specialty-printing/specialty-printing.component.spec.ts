@@ -29,8 +29,8 @@ describe('SpecialtyPrintingComponent', () => {
         expect(component).toBeTruthy();
     });
 
-    it('should have a page-header with title Specialty Printing', () => {
-        const de = fixture.debugElement.query(By.css('page-header'));
+    it('should have a prexp-header with title Specialty Printing', () => {
+        const de = fixture.debugElement.query(By.css('prexp-header'));
         expect(de).toBeTruthy();
         const title = de.properties['title'];
         expect(title).toBe('Specialty Printing');

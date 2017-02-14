@@ -29,7 +29,7 @@ describe('TermsComponent', () => {
     });
 
     it('should have a page header that says Terms of Use', () => {
-        const de = fixture.debugElement.query(By.css('page-header'));
+        const de = fixture.debugElement.query(By.css('prexp-header'));
         expect(de).toBeTruthy();
         const title = de.properties['title'];
         expect(title).toBe('Terms of Use');

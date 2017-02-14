@@ -29,7 +29,7 @@ describe('PageNotFoundComponent', () => {
     });
 
     it('should have a page header that says Page Not Found', () => {
-        const de = fixture.debugElement.query(By.css('page-header'));
+        const de = fixture.debugElement.query(By.css('prexp-header'));
         expect(de).toBeTruthy();
         const title = de.properties['title'];
         expect(title).toBe('Page Not Found');

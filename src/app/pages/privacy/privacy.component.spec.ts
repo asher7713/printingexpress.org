@@ -29,7 +29,7 @@ describe('PrivacyComponent', () => {
     });
 
     it('should have a page header that says Privacy Policy', () => {
-        const de = fixture.debugElement.query(By.css('page-header'));
+        const de = fixture.debugElement.query(By.css('prexp-header'));
         expect(de).toBeTruthy();
         const title = de.properties['title'];
         expect(title).toBe('Privacy Policy');

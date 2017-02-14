@@ -29,8 +29,8 @@ describe('GuideComponent', () => {
         expect(component).toBeTruthy();
     });
 
-    it('should have a page-header with title Artwork Guide', () => {
-        const de = fixture.debugElement.query(By.css('page-header'));
+    it('should have a prexp-header with title Artwork Guide', () => {
+        const de = fixture.debugElement.query(By.css('prexp-header'));
         expect(de).toBeTruthy();
         const title = de.properties['title'];
         expect(title).toBe('Artwork Guide');
