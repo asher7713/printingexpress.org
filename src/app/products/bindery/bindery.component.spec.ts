@@ -30,7 +30,7 @@ describe('BinderyComponent', () => {
     });
 
     it('should have a page-header with title Bindery and Finishing', () => {
-        let de = fixture.debugElement.query(By.css('page-header'));
+        const de = fixture.debugElement.query(By.css('page-header'));
         expect(de).toBeTruthy();
         const title = de.properties['title'];
         expect(title).toBe('Bindery and Finishing');

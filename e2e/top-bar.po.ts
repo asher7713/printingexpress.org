@@ -6,9 +6,9 @@ export class TopBar {
     }
 
     navigateTo(page: string) {
-        var el = element(by.linkText(page));
+        const el = element(by.linkText(page));
         el.getAttribute('href').then((href: string) => {
-            return browser.get(href)
+            return browser.get(href);
         });
     }
 

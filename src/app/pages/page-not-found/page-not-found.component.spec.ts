@@ -7,31 +7,31 @@ import { DebugElement } from '@angular/core';
 import { PageNotFoundComponent } from './page-not-found.component';
 
 describe('PageNotFoundComponent', () => {
-  let component: PageNotFoundComponent;
-  let fixture: ComponentFixture<PageNotFoundComponent>;
+    let component: PageNotFoundComponent;
+    let fixture: ComponentFixture<PageNotFoundComponent>;
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ PageNotFoundComponent ],
-      schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
-    })
-    .compileComponents();
-  }));
+    beforeEach(async(() => {
+        TestBed.configureTestingModule({
+            declarations: [PageNotFoundComponent],
+            schemas: [CUSTOM_ELEMENTS_SCHEMA]
+        })
+            .compileComponents();
+    }));
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(PageNotFoundComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+    beforeEach(() => {
+        fixture = TestBed.createComponent(PageNotFoundComponent);
+        component = fixture.componentInstance;
+        fixture.detectChanges();
+    });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
+    it('should create', () => {
+        expect(component).toBeTruthy();
+    });
 
-  it('should have a page header that says Page Not Found', () => {
-      let de = fixture.debugElement.query(By.css('page-header'));
-      expect(de).toBeTruthy();
-      let title = de.properties['title'];
-      expect(title).toBe('Page Not Found');
-  });
+    it('should have a page header that says Page Not Found', () => {
+        const de = fixture.debugElement.query(By.css('page-header'));
+        expect(de).toBeTruthy();
+        const title = de.properties['title'];
+        expect(title).toBe('Page Not Found');
+    });
 });

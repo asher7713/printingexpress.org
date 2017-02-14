@@ -30,7 +30,7 @@ describe('RequirementsComponent', () => {
     });
 
     it('should have a page-header with title Artwork Requirements', () => {
-        let de = fixture.debugElement.query(By.css('page-header'));
+        const de = fixture.debugElement.query(By.css('page-header'));
         expect(de).toBeTruthy();
         const title = de.properties['title'];
         expect(title).toBe('Artwork Requirements');

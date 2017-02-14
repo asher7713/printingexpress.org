@@ -16,7 +16,7 @@ import { DOCUMENT } from '@angular/platform-browser';
 const animationLength = 300;
 
 @Component({
-    selector: 'top-bar',
+    selector: 'prexp-top-bar',
     templateUrl: './top-bar.component.html',
     styleUrls: ['./top-bar.component.scss'],
     animations: [
@@ -46,11 +46,11 @@ const animationLength = 300;
 export class TopBarComponent implements OnInit {
     @ViewChild('top') private top: ElementRef;
     @ViewChild('bumper') private bumper: ElementRef;
-    private titlePosition = 'notTop';
-    private linkPosition = 'notTop';
-    private navIs = 'invisible';
     private navVisibleBreakpoints = ['large', 'xlarge', 'xxlarge'];
     private lastBreakpoint: string;
+    titlePosition = 'notTop';
+    linkPosition = 'notTop';
+    navIs = 'invisible';
 
     pages = [
         {name: 'Wide-Format', path: 'wide-format'},
@@ -73,7 +73,7 @@ export class TopBarComponent implements OnInit {
     }
 
     @HostListener('window:resize', []) onResize() {
-        let size = this.getSize();
+        const size = this.getSize();
         if (this.navVisibleBreakpoints.indexOf(size) === -1 && this.navVisibleBreakpoints.indexOf(this.lastBreakpoint) !== -1) {
             this.navIs = 'invisible';
         }
@@ -82,8 +82,8 @@ export class TopBarComponent implements OnInit {
     }
 
     private resizeBumper() {
-        let size = this.getSize();
-        let top = this.document.body.scrollTop;
+        const size = this.getSize();
+        const top = this.document.body.scrollTop;
 
         if (this.navVisibleBreakpoints.indexOf(size) !== -1) {
             this.navIs = 'visible';

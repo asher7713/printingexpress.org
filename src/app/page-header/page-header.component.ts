@@ -11,7 +11,7 @@ import {
 import { Title } from '@angular/platform-browser';
 
 @Component({
-    selector: 'page-header',
+    selector: 'prexp-header',
     templateUrl: './page-header.component.html',
     styleUrls: ['./page-header.component.scss'],
     animations: [
@@ -37,7 +37,7 @@ export class PageHeaderComponent implements OnInit {
         this.logoState = 'in';
         window.setTimeout(() => this.headerState = 'in', 150);
 
-        let title = this.titlePrefix + this.title;
+        const title = this.titlePrefix + this.title;
         this.titleService.setTitle(title);
     }
 }

@@ -30,7 +30,7 @@ describe('GuideComponent', () => {
     });
 
     it('should have a page-header with title Artwork Guide', () => {
-        let de = fixture.debugElement.query(By.css('page-header'));
+        const de = fixture.debugElement.query(By.css('page-header'));
         expect(de).toBeTruthy();
         const title = de.properties['title'];
         expect(title).toBe('Artwork Guide');
