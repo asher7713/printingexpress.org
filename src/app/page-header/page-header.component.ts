@@ -35,7 +35,7 @@ export class PageHeaderComponent implements OnInit {
 
     ngOnInit() {
         this.logoState = 'in';
-        window.setTimeout(() => this.headerState = 'in', 150);
+        setTimeout(() => this.headerState = 'in', 150);
 
         const title = this.titlePrefix + this.title;
         this.titleService.setTitle(title);

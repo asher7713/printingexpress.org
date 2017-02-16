@@ -60,7 +60,7 @@ export class TopBarComponent implements OnInit {
     ];
 
     constructor(
-        @Inject(DOCUMENT) private document: Document,
+        @Inject(DOCUMENT) private document: any,
         @Inject('Window') private window: any) { }
 
     ngOnInit() {
@@ -100,7 +100,7 @@ export class TopBarComponent implements OnInit {
             this.titlePosition = 'top';
         }
 
-        window.setTimeout(() =>
+        setTimeout(() =>
             this.bumper.nativeElement.style.height = this.top.nativeElement.clientHeight + 'px'
         , animationLength);
     }
