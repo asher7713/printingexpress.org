@@ -9,7 +9,6 @@ describe('PageHeaderComponent', () => {
     const title = 'The Title';
     let component: PageHeaderComponent;
     let fixture: ComponentFixture<PageHeaderComponent>;
-    let title = 'The Title';
 
     beforeEach(async(() => {
         TestBed.configureTestingModule({
