@@ -1,6 +1,6 @@
 @import "../settings";
 
-#top, #bottom {
+#bottom {
     background-color: map-get($foundation-palette, primary);
     color: $white;
     box-shadow: 0 0 12px black;
@@ -19,12 +19,5 @@
             color: $white;
         }
     }
-}
-
-#top p.title {
-    padding: $menu-item-padding;
-}
-
-#bottom {
     text-align: center;
 }

@@ -21,7 +21,7 @@ cache: yarn
 
 install:
   - yarn
-  - yarn global add angular-cli
+  - yarn global add @angular/cli
 
 before_script:
   - export CHROME_BIN=/usr/bin/google-chrome
@@ -32,34 +32,36 @@ before_script:
 script:
   - ng lint
   - ng test --watch=false --code-coverage
+  # - ng e2e
 
-after_script:
-  - cat coverage/coverage.lcov | ./node_modules/coveralls/bin/coveralls.js
-
-before_deploy: ng build -prod #-aot
+before_deploy:
+  - cat coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js
+  - ng build -prod
+  - pip install awscli
 
 deploy:
   - provider: s3
-    access_key_id: $AWS_ACCESS_KEY
-    secret_access_key: $AWS_SECRET_KEY
-    bucket: $AWS_S3_DEV_BUCKET
+    access_key_id: $AWS_ACCESS_KEY_ID
+    secret_access_key: $AWS_SECRET_ACCESS_KEY
+    bucket: $DEV_BUCKET
     skip_cleanup: true
     acl: public_read
     local_dir: dist
-    detect_encoding: true
     default_text_charset: 'utf-8'
+    cache_control: "max-age=31536000"
     on:
       branch: develop
   - provider: s3
-    access_key_id: $AWS_ACCESS_KEY
-    secret_access_key: $AWS_SECRET_KEY
-    bucket: $AWS_S3_PROD_BUCKET
+    access_key_id: $AWS_ACCESS_KEY_ID
+    secret_access_key: $AWS_SECRET_ACCESS_KEY
+    bucket: $PROD_BUCKET
     skip_cleanup: true
     acl: public_read
     local_dir: dist
-    detect_encoding: true
     default_text_charset: 'utf-8'
+    cache_control: "max-age=31536000"
     on:
       branch: master
-  # cache_control: "max-age=31536000"
-  # expires: "2012-12-21 00:00:00 -0000"
+
+after_deploy:
+  - ./dev/update_aws.sh

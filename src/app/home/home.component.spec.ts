@@ -30,7 +30,7 @@ describe('HomeComponent', () => {
     });
 
     it('should have a full-screen page header', async(() => {
-        let de = fixture.debugElement.query(By.css('page-header'));
+        const de = fixture.debugElement.query(By.css('prexp-header'));
         expect(de).toBeTruthy();
         const props = de.properties;
         expect(props['fullScreen']).toBe(true);

@@ -1,4 +1,5 @@
 import { PrintingexpressPage } from './app.po';
+import {} from 'jasmine';
 
 describe('printingexpress App', function() {
   let page: PrintingexpressPage;
@@ -7,8 +8,8 @@ describe('printingexpress App', function() {
     page = new PrintingexpressPage();
   });
 
-  it('should display message saying app works', () => {
+  it('should have a title of Full-Service Printing', () => {
     page.navigateTo();
-    expect(page.getParagraphText()).toEqual('app works!');
+    expect(page.getHeader()).toEqual('Full-Service Printing');
   });
 });
