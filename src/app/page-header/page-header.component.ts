@@ -2,12 +2,14 @@ import {
     Component,
     OnInit,
     Input,
-    trigger,
-    state,
-    style,
-    animate,
-    transition
 } from '@angular/core';
+import {
+  trigger,
+  state,
+  style,
+  animate,
+  transition
+} from '@angular/animations';
 import { Title } from '@angular/platform-browser';
 
 @Component({

@@ -5,12 +5,14 @@ import {
     HostListener,
     ElementRef,
     ViewChild,
-    trigger,
-    state,
-    style,
-    animate,
-    transition
 } from '@angular/core';
+import {
+  trigger,
+  state,
+  style,
+  animate,
+  transition
+} from '@angular/animations';
 import { DOCUMENT } from '@angular/platform-browser';
 
 const animationLength = 300;
@@ -113,9 +115,17 @@ export class TopBarComponent implements OnInit {
     trimChars = s => s.length >= 2 && (s[0] === s[s.length - 1]) ? s.slice(1, -1).trim() : s;
 
     private getSize(): string {
-        return this.trimChars(this.window.getComputedStyle(
-            this.document.querySelector('body'), ':before'
-        ).getPropertyValue('content'));
+        if (this.document.body.clientWidth >= 1440) {
+            return 'xxlarge';
+        } else if (this.document.body.clientWidth >= 1200) {
+            return 'xlarge';
+        } else if (this.document.body.clientWidth >= 1024) {
+            return 'large';
+        } else if (this.document.body.clientWidth >= 640) {
+            return 'medium';
+        } else {
+            return 'small';
+        }
     }
 
 }
