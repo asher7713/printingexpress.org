@@ -2,6 +2,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 import { PageHeaderComponent } from './page-header.component';
 
@@ -12,7 +13,8 @@ describe('PageHeaderComponent', () => {
 
     beforeEach(async(() => {
         TestBed.configureTestingModule({
-            declarations: [PageHeaderComponent]
+            declarations: [PageHeaderComponent],
+            imports: [NoopAnimationsModule]
         })
             .compileComponents();
     }));
