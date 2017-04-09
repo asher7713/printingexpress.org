@@ -6,6 +6,6 @@ export class PrintingexpressPage {
   }
 
   getHeader() {
-    return element(by.css('app-root h1')).getText();
+    return element(by.css('prexp-root h1')).getText();
   }
 }

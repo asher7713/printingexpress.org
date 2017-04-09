@@ -26,7 +26,6 @@
         "@angular/router": "^4.0.1",
         "core-js": "^2.4.1",
         "foundation-sites": "^6.3",
-        "karma-jasmine-html-reporter": "^0.2.2",
         "rxjs": "^5.0.1",
         "ts-helpers": "^1.1.1",
         "zone.js": "0.8.4"
@@ -47,6 +46,7 @@
         "karma-cli": "^1.0.1",
         "karma-coverage-istanbul-reporter": "^0.2.0",
         "karma-jasmine": "~1.1.0",
+        "karma-jasmine-html-reporter": "^0.2.2",
         "node-sass": "^4",
         "protractor": "~5.1.0",
         "ts-node": "^2",
