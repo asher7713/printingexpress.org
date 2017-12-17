@@ -8,7 +8,6 @@
     </div>
     <nav class="top-bar-right" [@nav]="navIs">
         <ul class="vertical large-horizontal menu">
-            <li><a href="/products">Products</a></li>
             <li *ngFor="let page of pages">
                 <a [@link]="linkPosition" [routerLink]="['/products', page.path]">{{page.name}}</a>
             </li>

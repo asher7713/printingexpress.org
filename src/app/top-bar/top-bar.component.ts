@@ -7,11 +7,11 @@ import {
     ViewChild,
 } from '@angular/core';
 import {
-  trigger,
-  state,
-  style,
-  animate,
-  transition
+    trigger,
+    state,
+    style,
+    animate,
+    transition
 } from '@angular/animations';
 import { DOCUMENT } from '@angular/platform-browser';
 
@@ -55,10 +55,11 @@ export class TopBarComponent implements OnInit {
     navIs = 'invisible';
 
     pages = [
-        {name: 'Wide-Format', path: 'wide-format'},
-        {name: 'Specialty Printing', path: 'specialty-printing'},
-        {name: 'Photographs', path: 'photographs'},
-        {name: 'Bindery', path: 'bindery'}
+        { name: 'Products', path: 'index' },
+        { name: 'Wide-Format', path: 'wide-format' },
+        { name: 'Specialty Printing', path: 'specialty-printing' },
+        { name: 'Photographs', path: 'photographs' },
+        { name: 'Bindery', path: 'bindery' }
     ];
 
     constructor(
@@ -104,7 +105,7 @@ export class TopBarComponent implements OnInit {
 
         setTimeout(() =>
             this.bumper.nativeElement.style.height = this.top.nativeElement.clientHeight + 'px'
-        , animationLength);
+            , animationLength);
     }
 
     toggleNavVisibility() {
