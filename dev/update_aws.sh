@@ -1,17 +1,9 @@
 #!/bin/bash
-# Delete old files from AWS
-# and send invalidations to CF
+# Delete old files from AWS and send invalidations to CF
 
 set -ev
 
-## SKIP INVALIDATION ON THESE FILES
-# If one of these files is changed, this list will need to be updated.
-# This provides a way to make less total invalidations
-# We can't compare modification times, since everything is rebuilt on
-# each build. We can't compare sizes safely because, for instance,
-# index.html will be the same size.
-SKIP_LIST=("favicon.ico", "assets/*")
-
+## Most of the script deals with variables...
 if [[ $BRANCH -eq "master" ]]; then
     BUCKET=$PROD_BUCKET
     DISTRO=$PROD_CF_DISTRO
@@ -19,29 +11,20 @@ elif [[ $BRANCH -eq "develop" ]]; then
     BUCKET=$DEV_BUCKET
     DISTRO=$DEV_CF_DISTRO
 else
+    >&2 echo "Branch must be set to master or develop"
     exit 1
 fi
 
-if [[ -z $BUCKET ]]; then
-    exit
-fi
+test -z $BUCKET && exit 1
 
-PATHS=""
-for file in `aws s3 ls --recursive $BUCKET | awk '{print $4}'`; do
-    if [[ -f dist/$file ]]; then
-        for skip in $SKIP_LIST; do
-            if [[ $file =~ $skip ]]; then
-                continue;
-            fi
-        done
-        PATHS="$PATHS /$file"
-    else
-        aws s3 rm s3://$BUCKET/$file
-    fi
-done
+## Then one command to copy
+aws s3 sync dist/ s3://$BUCKET/ --delete --cache-control "public, max-age=31536000, must-revalidate, no-transform"
 
+## Send any invalidations
 if [[ ! -z $DISTRO ]]; then
-    aws configure set preview.cloudfront true
-    # $PATHS starts with a space
-    aws cloudfront create-invalidation --distribution-id $DISTRO --paths$PATHS
+    # Find anything in assets that's different from the last merge into this branch
+    # then strip off the word "src", as in /src/assets/ to leave /assets and reflect
+    # the path in Cloudfront.
+    PATHS="$(git diff --name-only --diff-filter=M HEAD...$TRAVIS_BRANCH | grep \/src\/assets | sed 's.src..g') /index.html"
+    aws cloudfront create-invalidation --distribution-id $DISTRO --paths $PATHS
 fi

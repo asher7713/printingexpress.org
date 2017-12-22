@@ -1,5 +1,4 @@
 language: node_js
-sudo: true
 dist: trusty
 
 addons:
@@ -8,6 +7,7 @@ addons:
       - google-chrome
     packages:
       - google-chrome-stable
+      - awscli
 
 node_js:
   - '6'
@@ -36,32 +36,15 @@ script:
 
 before_deploy:
   - cat coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js
-  - ng build -prod
-  - pip install awscli
+  - ng build --prod
 
 deploy:
-  - provider: s3
-    access_key_id: $AWS_ACCESS_KEY_ID
-    secret_access_key: $AWS_SECRET_ACCESS_KEY
-    bucket: $DEV_BUCKET
-    skip_cleanup: true
-    acl: public_read
-    local_dir: dist
-    default_text_charset: 'utf-8'
-    cache_control: "max-age=31536000"
+  - provider: script
+    script: ./dev/update_aws.sh $DEV_BUCKET $DEV_CF_DISTRO
     on:
       branch: develop
-  - provider: s3
-    access_key_id: $AWS_ACCESS_KEY_ID
-    secret_access_key: $AWS_SECRET_ACCESS_KEY
-    bucket: $PROD_BUCKET
-    skip_cleanup: true
-    acl: public_read
-    local_dir: dist
-    default_text_charset: 'utf-8'
-    cache_control: "max-age=31536000"
+  - provider: script
+    script: ./dev/update_aws.sh $PROD_BUCKET $PROD_CF_DISTRO
     on:
+      tags: true
       branch: master
-
-after_deploy:
-  - ./dev/update_aws.sh
